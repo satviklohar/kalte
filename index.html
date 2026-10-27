@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KÄLTE — Polar Outerwear</title>
+  <meta name="description" content="KÄLTE Polar Series — a hooded down jacket engineered for the cold side." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader-mark">KÄLTE</div>
+    <div class="loader-count"><span>0</span>%</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <!-- Fixed background layers (behind the 3D canvas) -->
+  <div class="bg" aria-hidden="true">
+    <div class="beam"></div>
+    <div class="beam beam--soft"></div>
+    <div class="bg-word">POLAR</div>
+  </div>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor (mouse only) -->
+  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><em></em></span></div>
+
+  <!-- Header -->
+  <header class="nav">
+    <a class="logo" href="#intro">KÄLTE</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#warmth" data-nav="warmth">Insulation</a>
+      <a href="#shell" data-nav="shell">Shell</a>
+      <a href="#rated" data-nav="rated">Ratings</a>
+      <a href="#details" data-nav="details">Details</a>
+      <a href="#shop" data-nav="shop">Shop</a>
+    </nav>
+    <button class="bag" type="button" aria-label="Open bag" aria-controls="drawer">
+      Bag <span class="bag-count">0</span>
+    </button>
+  </header>
+
+  <!-- Scroll progress -->
+  <aside class="progress" aria-hidden="true">
+    <span class="progress-num"><b>01</b> / 06</span>
+    <div class="progress-track"><span class="progress-fill"></span></div>
+    <span class="progress-label">Intro</span>
+  </aside>
+
+  <main id="story">
+    <!-- 01 Hero — front view -->
+    <section class="panel panel--hero" id="intro" data-name="Intro">
+      <div class="panel-inner">
+        <div class="hero-top reveal-hero">
+          <span class="eyebrow">Polar Series — Winter 2026</span>
+          <span class="eyebrow eyebrow--right">Hover the jacket ✦</span>
+        </div>
+
+        <div class="hero-foot">
+          <div class="hero-copy">
+            <h1 class="display display--hero">
+              <span class="line">Made for the</span>
+              <span class="line"><svg class="flake" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 3.5l3 2.5 3-2.5M9 20.5l3-2.5 3 2.5"/></svg>Cold Side</span>
+            </h1>
+            <p class="reveal-hero">An insulated hooded jacket with a colour-blocked water-resistant shell. Warm down where you need it, at a weight you'll forget about.</p>
+            <div class="cta-row reveal-hero">
+              <a class="btn btn--light" href="#shop">Shop the jacket <span class="btn-arrow">→</span></a>
+              <a class="btn btn--ghost" href="#details">See the details</a>
+            </div>
+          </div>
+
+          <div class="hero-card reveal-hero">
+            <div>
+              <span class="eyebrow">New drop</span>
+              <p>Polar Series 01 — built for sub-zero commutes &amp; weekend summits.</p>
+            </div>
+            <div class="hero-card-temp"><span>−30°</span><small>comfort</small></div>
+          </div>
+        </div>
+
+        <div class="scroll-hint reveal-hero" aria-hidden="true"><span></span>Scroll</div>
+      </div>
+    </section>
+
+    <!-- 02 Insulation — left angle -->
+    <section class="panel panel--left" id="warmth" data-name="Insulation">
+      <div class="panel-inner">
+        <span class="eyebrow reveal">02 — Insulation</span>
+        <h2 class="display">
+          <span class="line">Feather-Light</span>
+          <span class="line">Warmth</span>
+        </h2>
+        <p class="lead reveal">800-fill-power down sits in box-wall baffles that keep the loft even across the body and arms, so there are no cold spots and no bulk.</p>
+        <ul class="chips reveal">
+          <li>800 FP down</li><li>Box-wall baffles</li><li>RDS certified</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 Shell — right angle -->
+    <section class="panel panel--right" id="shell" data-name="Shell">
+      <div class="panel-inner">
+        <span class="eyebrow reveal">03 — Weatherproofing</span>
+        <h2 class="display">
+          <span class="line">Storm-Sealed</span>
+          <span class="line">Shell</span>
+        </h2>
+        <p class="lead reveal">A water-resistant ripstop face beads off sleet. The adjustable storm hood, full-length two-way zip and velcro-tab cuffs seal the cold out.</p>
+        <ul class="chips reveal">
+          <li>Water resistant</li><li>Storm hood</li><li>Velcro cuffs</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 Ratings — back view -->
+    <section class="panel panel--left" id="rated" data-name="Ratings">
+      <div class="panel-inner panel-inner--split">
+        <div>
+          <span class="eyebrow reveal">04 — Tested in Tromsø</span>
+          <h2 class="display">
+            <span class="line">Rated to</span>
+            <span class="line">−30°C</span>
+          </h2>
+        </div>
+        <ul class="stats">
+          <li class="reveal"><b data-count="800">0</b><span>Fill power</span></li>
+          <li class="reveal"><b data-count="30" data-prefix="−" data-suffix="°">0</b><span>Comfort rating</span></li>
+          <li class="reveal"><b data-count="540" data-suffix="g">0</b><span>Total weight</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 Details — horizontal gallery -->
+    <section class="panel panel--details" id="details" data-name="Details">
+      <div class="details-head">
+        <span class="eyebrow reveal">05 — Details</span>
+        <h2 class="display display--md">
+          <span class="line">Every detail,</span>
+          <span class="line">considered.</span>
+        </h2>
+      </div>
+      <div class="details-viewport">
+        <ol class="details-track">
+          <li class="detail-card"><figure><img src="assets/detail-hood.jpg" alt="Close-up of the insulated hood with drawcord toggles" loading="lazy" /></figure><span class="detail-num">01</span><h3>Storm hood</h3><p>Insulated, with drawcord toggles that cinch in one pull.</p></li>
+          <li class="detail-card"><figure><img src="assets/detail-zipper.jpg" alt="Close-up of the two-way front zipper" loading="lazy" /></figure><span class="detail-num">02</span><h3>Two-way zip</h3><p>Full-length and backed by a draft flap, so you can open it from either end.</p></li>
+          <li class="detail-card"><figure><img src="assets/detail-pocket.jpg" alt="Close-up of a zipped hand pocket" loading="lazy" /></figure><span class="detail-num">03</span><h3>Zip hand pockets</h3><p>Fleece-lined and set high enough to use with a pack on.</p></li>
+          <li class="detail-card"><figure><img src="assets/detail-cuff.jpg" alt="Close-up of the velcro-tab cuff" loading="lazy" /></figure><span class="detail-num">04</span><h3>Velcro-tab cuffs</h3><p>Tighten over gloves, loosen to vent.</p></li>
+          <li class="detail-card"><figure><img src="assets/detail-inner.jpg" alt="Open jacket showing the quilted inner lining" loading="lazy" /></figure><span class="detail-num">05</span><h3>Quilted lining</h3><p>A soft, warm interior with an inner chest pocket.</p></li>
+          <li class="detail-card"><figure><img src="assets/detail-fabric.jpg" alt="Water droplets beading on the shell fabric" loading="lazy" /></figure><span class="detail-num">06</span><h3>Water-resistant face</h3><p>A PFC-free DWR finish makes rain and snow bead up and roll off.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 06 Shop -->
+    <section class="panel panel--shop" id="shop" data-name="Shop">
+      <div class="panel-inner">
+        <div class="shop reveal">
+          <div class="shop-head">
+            <span class="eyebrow">Polar Series — 01</span>
+            <span class="rating" aria-label="Rated 4.9 out of 5">★★★★★ <small>4.9 · 312 reviews</small></span>
+          </div>
+          <h2 class="shop-title">Polar Down Jacket</h2>
+          <div class="price">$389 <s>$449</s> <span class="badge">−13%</span></div>
+
+          <fieldset class="opt">
+            <legend>Colour — <span class="opt-value" id="colorName">Glacier</span></legend>
+            <div class="swatches" role="radiogroup" aria-label="Colour">
+              <button class="swatch is-active" role="radio" aria-checked="true" data-tint="#ffffff" data-name="Glacier" style="--c:#e6e8ec" aria-label="Glacier"></button>
+              <button class="swatch" role="radio" aria-checked="false" data-tint="#ff8a5c" data-name="Ember" style="--c:#d9643c" aria-label="Ember"></button>
+              <button class="swatch" role="radio" aria-checked="false" data-tint="#7fb596" data-name="Pine" style="--c:#4f7a62" aria-label="Pine"></button>
+              <button class="swatch" role="radio" aria-checked="false" data-tint="#a9c8f2" data-name="Frost" style="--c:#9dbbe0" aria-label="Frost"></button>
+              <button class="swatch" role="radio" aria-checked="false" data-tint="#f0d9b0" data-name="Sand" style="--c:#d9c3a0" aria-label="Sand"></button>
+            </div>
+          </fieldset>
+
+          <fieldset class="opt">
+            <legend>Size — <span class="opt-value" id="sizeName">M</span> <a class="size-guide" href="#" onclick="return false">Size guide</a></legend>
+            <div class="sizes" role="radiogroup" aria-label="Size">
+              <button role="radio" aria-checked="false">XS</button>
+              <button role="radio" aria-checked="false">S</button>
+              <button class="is-active" role="radio" aria-checked="true">M</button>
+              <button role="radio" aria-checked="false">L</button>
+              <button role="radio" aria-checked="false">XL</button>
+            </div>
+          </fieldset>
+
+          <button class="btn btn--light btn--wide add-to-bag" type="button">Add to bag — $389</button>
+          <ul class="perks">
+            <li>Ships in 24h</li><li>Free 60-day returns</li><li>Lifetime repairs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Stay warm ✻ Stay wild ✻ Stay warm ✻ Stay wild ✻&nbsp;</span>
+        <span>Stay warm ✻ Stay wild ✻ Stay warm ✻ Stay wild ✻&nbsp;</span>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="logo">KÄLTE</div>
+        <p>Outerwear for the cold side.<br />Designed in Oslo.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#shop">Jackets</a><a href="#shop">Mid-layers</a><a href="#shop">Knitwear</a><a href="#shop">Accessories</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#">Shipping</a><a href="#">Returns</a><a href="#">Repairs</a><a href="#">Size guide</a>
+      </div>
+      <form class="newsletter">
+        <h4>First to the next drop</h4>
+        <div class="newsletter-row">
+          <input type="email" placeholder="you@email.com" aria-label="Email" required />
+          <button class="btn btn--light" type="submit">Join</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 KÄLTE Outerwear</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <!-- Bag drawer -->
+  <div class="drawer-scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your bag</h3>
+      <button class="drawer-close" type="button" aria-label="Close bag">✕</button>
+    </div>
+    <ul class="drawer-items"></ul>
+    <p class="drawer-empty">Your bag is empty — the cold isn't.</p>
+    <div class="drawer-foot">
+      <div class="drawer-total"><span>Subtotal</span><b>$0</b></div>
+      <button class="btn btn--light btn--wide checkout" type="button">Checkout</button>
+      <small>Free shipping &amp; returns on every order</small>
+    </div>
+  </aside>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
